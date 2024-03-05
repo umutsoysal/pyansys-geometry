@@ -1883,7 +1883,7 @@ def test_get_collision(modeler: Modeler):
 
 
 def test_sphere_creation(modeler: Modeler):
-    """Test the spherebody creation with given radius and check the diameter in
+    """Test the spherebody creation with given radius and check that it is a sphere body hence it has only one face in
     different unit."""
     skip_if_linux(modeler)
     design = modeler.create_design("Spheretest")
@@ -1891,3 +1891,4 @@ def test_sphere_creation(modeler: Modeler):
     radius = Distance(15, UNITS.mm)
     spherebody = design.create_sphere_body("testspherebody", center_point, radius)
     assert spherebody.name == "testspherebody"
+    assert len(spherebody.faces) == 1
